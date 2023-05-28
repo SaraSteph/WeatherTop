@@ -5,14 +5,14 @@ import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 
 
 public class Dashboard extends Controller
 {
-  public static void index()
-  {
+  public static void index() {
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
     List<Station> stations = Station.findAll();
