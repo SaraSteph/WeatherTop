@@ -1,0 +1,63 @@
+
+#{extends 'main.html' /}
+#{set title:'station' /}
+
+#{menu id:"dashboard"/}
+
+<div class="content box">
+  <h1 class="title">
+    ${station.name}
+  </h1>
+  <div class="columns">
+    <div class="column">
+      <div class="box">
+        <div class="box has-background-black">
+          <img src="/public/images/location.png">
+        <h3 class ="has-text-white"> ${station.name}</h3>
+        <p  class ="has-text-white"> ${station.longitude} </p>
+        <p  class ="has-text-white"> ${station.latitude} </p>
+      </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box">
+        <div class="box has-background-black">
+          <img src="/public/images/weather.png">
+        <h3 class ="has-text-white"> Weather</h3>
+        <br>
+      </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box">
+        <div class="box has-background-black">
+          <img src="/public/images/temp.png">
+        <h3 class ="has-text-white"> Temp</h3>
+        <p class ="has-text-white"> ${station.readings[0].temperature}</p>
+        <p class ="has-text-white"> ${(station.readings[0].temperature * 9/5) + 32}°F</p>
+      </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box">
+        <div class="box has-background-black">
+          <img src="/public/images/wind.png">
+        <h3 class ="has-text-white"> Wind</h3>
+        <p class ="has-text-white"> ${station.readings[0].windSpeed}</p>
+      </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="box">
+        <div class="box has-background-black">
+          <img src="/public/images/pressure.png">
+        <h3 class ="has-text-white"> Pressure</h3>
+        <p class ="has-text-white"> ${station.readings[0].pressure}</p>
+      </div>
+      </div>
+    </div>
+  </div>
+  #{listreadings station:station /}
+  #{addreading station:station /}
+</div>
+

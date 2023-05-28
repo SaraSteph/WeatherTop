@@ -1,0 +1,42 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"admin"/}
+
+<div class="content box">
+  <h1 class="title">
+    weather app
+  </h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Code</th>
+      <th>Temperature</th>
+      <th>Wind Speed</th>
+      <th>Wind Direction</th>
+      <th>Pressure</th>
+    </tr>
+    </thead>
+    <tbody>
+    #{list items:readings, as:'reading'}
+    <tr>
+      <td>
+        ${reading.code}
+      </td>
+      <td>
+        ${reading.temperature}
+      </td>
+      <td>
+        ${reading.windSpeed}
+      </td>
+      <td>
+        ${reading.windDirection}
+      </td>
+      <td>
+        ${reading.pressure}
+      </td>
+    </tr>
+    #{/list}
+    </tbody>
+  </table>
+</div>
